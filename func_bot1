@@ -1,0 +1,30 @@
+def greet():
+    print('''Привет! Я твой консольный помощник.Введи "help", чтобы узнать команды''')
+
+def help_menu():
+    print('''
+    -help: показать команды
+    -echo <текст>: повторить текст
+    -calc <a> <op> <b>: посчитать (op = + _ * /)
+    -exit:выйти
+    ''')
+def echo(text):
+    return text
+
+def calc(a,b,op):
+    a=float(a)
+    b=float(b)
+    if op == '+':
+        print(a+b)
+    elif op == '-':
+        print(a-b)
+    elif op == '*':
+        print(a*b)
+    elif op == '/':
+        if b == 0:
+            print("Ошибка: Деление на ноль!")
+        elif b!=0:
+            print(a/b)
+
+def goodbye():
+    print("До свидания!")
