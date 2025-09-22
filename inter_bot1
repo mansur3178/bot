@@ -1,0 +1,18 @@
+from func_bot1 import *
+print(greet())
+while True:
+    c=input()
+    if c == "help":
+        print(help_menu())
+    elif c == "greet":
+        print(greet()) 
+    elif c == "echo":
+        print(echo())
+    
+    elif c == "calc":
+        p=c.split()
+        if len(p) != 4:
+            print("Неверно")
+        _, a, b, op = p
+        r=calc(a,b,op)
+        print(r)
