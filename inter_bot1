@@ -1,18 +1,37 @@
 from func_bot1 import *
+
 print(greet())
+
 while True:
-    c=input()
+    p = input(">>> ").split()
+
+    if not p:
+        continue
+
+    c = p[0]
+
     if c == "help":
         print(help_menu())
+
     elif c == "greet":
-        print(greet()) 
+        print(greet())
+
     elif c == "echo":
-        print(echo())
-    
+        if len(p) > 1:
+            print(echo(' '.join(p[1:])))
+        else:
+            print("Ошибка: отсутствует текст для echo")
+
     elif c == "calc":
-        p=c.split()
-        if len(p) != 4:
-            print("Неверно")
-        _, a, b, op = p
-        r=calc(a,b,op)
-        print(r)
+        if len(p) == 4:
+            _, a, b, op = p
+            print(calc(a, b, op))
+        else:
+            print("Ошибка: используйте формат calc <a> <b> <op>")
+
+    elif c == "exit":
+        print(goodbye())
+        break
+
+    else:
+        print("Неизвестная команда")
